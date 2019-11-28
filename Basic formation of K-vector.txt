@@ -1,0 +1,27 @@
+y = [9.6, 15.2, 3.5, 18.0, 7.7, 14.7, 2.5, 10.77] #y is the input array
+s = y #s is the sorted array
+s.sort()
+l = len(s) #l has the length of the array
+#print(s)
+
+y_min = s[0]
+y_max = s[l-1]
+#print(y_min,y_max)
+
+def f(x):
+    return (x-1)*(y_max-y_min)/(l-1)+y_min
+
+#print(f(l))
+e = 0.001
+y_max += e
+y_min -= e
+#print(f(l))
+k = [] #this will store array of respective k vectors
+ctr = 0
+
+for i in range(l):
+    if(f(i+1) < s[i]):
+        k.append(i)
+    else:
+        k.append(i+1)
+print(k)
